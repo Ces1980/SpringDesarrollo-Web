@@ -16,5 +16,12 @@ public class HomeController {
 		model.addAttribute("fecha", new Date());
 		return "home";
 	}
+	
+	@GetMapping("/acerca")
+	public String acerca(Model model) {
+		model.addAttribute("mensaje", "Acerca de nosotros");
+		model.addAttribute("quienes", "¿Quienes somos?");
+		return "acerca";
+	}
 
 }
