@@ -8,9 +8,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.vaescode.empleos.model.Vacante;
+
 
 @Controller
 public class HomeController {
+	
+	@GetMapping("/detalle")
+	public String mostrarDetalle(Model model) {
+		Vacante vacante = new Vacante();
+		vacante.setNombre("Ingeniero de comunicaciones");
+		vacante.setDescripcion("Se solicita ingeniero para dar soporte a intranet");
+		vacante.setFecha(new Date());
+		vacante.setSalario(9700.0);
+		model.addAttribute("vacante", vacante);
+		return "detalle";
+	}
 	
 	@GetMapping("/listado")
 	public String mostrarListado(Model model) {
@@ -41,11 +54,6 @@ public class HomeController {
 		return "home";
 	}
 	
-	@GetMapping("/acerca")
-	public String acerca(Model model) {
-		model.addAttribute("mensaje", "Acerca de nosotros");
-		model.addAttribute("quienes", "¿Quienes somos?");
-		return "acerca";
-	}
+	
 
 }
