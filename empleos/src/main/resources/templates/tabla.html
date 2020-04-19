@@ -11,9 +11,12 @@
 <body>
 
 	<div class="container mt-5">
+	
+	<img th:src="@{/images/empleo.png}" width="136" height="136">
 		<h1 class="text-primary">Lista de Vacantes</h1>
 
-		<table class="table table-dark table-striped table-bordered table-hover">
+		<table
+			class="table table-dark table-striped table-bordered table-hover">
 			<tr>
 				<th>Id</th>
 				<th>Vacante</th>
@@ -32,9 +35,9 @@
 				<td th:text="${vacante.destacado}"></td>
 				<td th:text="${vacante.destacado ==1 ? 'Sí': 'No'}"></td>
 				-->
-				<td>
-				<span th:if="${vacante.destacado == 1}" class="badge badge-success">Si</span>
-				<span th:unless="${vacante.destacado == 1}" class="badge badge-danger">No</span>
+				<td><span th:if="${vacante.destacado == 1}"
+					class="badge badge-success">Si</span> <span
+					th:unless="${vacante.destacado == 1}" class="badge badge-danger">No</span>
 				</td>
 			</tr>
 
