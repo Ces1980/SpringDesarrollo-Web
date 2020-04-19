@@ -81,6 +81,7 @@ public class HomeController {
 			vacante1.setFecha(sdf.parse("09-04-2020"));
 			vacante1.setSalario(8500.00);
 			vacante1.setDestacado(1);
+			vacante1.setImagen("empresa1.png");
 			
 			//Vacante dos
 			Vacante vacante2 = new Vacante();
@@ -90,6 +91,7 @@ public class HomeController {
 			vacante2.setFecha(sdf.parse("12-04-2020"));
 			vacante2.setSalario(8500.00);
 			vacante2.setDestacado(0);
+			vacante2.setImagen("empresa2.png");
 			
 			//Vacante tres
 			Vacante vacante3 = new Vacante();
@@ -99,6 +101,7 @@ public class HomeController {
 			vacante3.setFecha(sdf.parse("11-04-2020"));
 			vacante3.setSalario(10500.00);
 			vacante3.setDestacado(0);
+		
 			
 			//Vacante cuatro
 			Vacante vacante4 = new Vacante();
@@ -108,6 +111,7 @@ public class HomeController {
 			vacante4.setFecha(sdf.parse("09-04-2020"));
 			vacante4.setSalario(5500.00);
 			vacante4.setDestacado(1);
+			vacante4.setImagen("empresa3.png");
 			
 			/**
 			 * Agregamos los 4 objetos de tipo Vacante a la lista
