@@ -4,8 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+/*Se inscribe a nivel clase el prefijo /categorias para construir la URL
+ * */
+@RequestMapping("/categorias")
 public class CategoriasController {
 
 	
