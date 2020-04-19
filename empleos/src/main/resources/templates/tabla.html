@@ -2,28 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
 <title>Listado de vacantes</title>
 </head>
 <body>
-<h1>Lista de Vacantes</h1>
 
- <table style="width:100%">
-  <tr>
-    <th>Id</th>
-    <th>Vacante</th>
-    <th>Fecha de publicación</th>
-    <th>Salario ofrecido</th>
-    <th>Descripción</th>
-  </tr>
-  <tr th:each="vacante : ${vacantes}">
-    <td th:text="${vacante.id}"></td>
-    <td th:text="${vacante.nombre}"></td>
-    <td th:text="${vacante.fecha}"></td>
-    <td th:text="${vacante.salario}"></td>
-    <td th:text="${vacante.descripcion}"></td>
-  </tr>
-  
-</table> 
+	<div class="container mt-5">
+		<h1 class="text-primary">Lista de Vacantes</h1>
 
+		<table class="table table-dark table-striped table-bordered table-hover">
+			<tr>
+				<th>Id</th>
+				<th>Vacante</th>
+				<th>Fecha de publicación</th>
+				<th>Salario ofrecido</th>
+				<th>Descripción</th>
+			</tr>
+			<tr th:each="vacante : ${vacantes}">
+				<td th:text="${vacante.id}"></td>
+				<td th:text="${vacante.nombre}"></td>
+				<td th:text="${vacante.fecha}"></td>
+				<td th:text="${vacante.salario}"></td>
+				<td th:text="${vacante.descripcion}"></td>
+			</tr>
+
+		</table>
+
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+			crossorigin="anonymous"></script>
+	</div>
 </body>
 </html>
