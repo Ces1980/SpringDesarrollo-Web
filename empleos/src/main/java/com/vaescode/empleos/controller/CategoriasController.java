@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 /*Se inscribe a nivel clase el prefijo /categorias para construir la URL
@@ -24,8 +26,13 @@ public class CategoriasController {
 		}
 		 
 		 
-		@PostMapping("/save")
-		public String guardar() {
+		//@PostMapping("/save")
+		 @RequestMapping(value="/save", method = RequestMethod.POST)
+		public String guardar(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion) {
+			System.out.println("Categoria: " +nombre);
+			System.out.println("Descripción: " +descripcion);
+			
+			
 		return "categorias/listCategorias";
 		}
 }

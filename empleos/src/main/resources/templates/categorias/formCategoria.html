@@ -5,6 +5,16 @@
 <title>Formulario de categorias</title>
 </head>
 <body>
-<h1>Creación de categorias</h1>
+	<h1>Creación de categorias</h1>
+
+ 	<form th:action="@{/categorias/save}" method="post">
+ 		  Nombre: <br>
+		  <input type="text" name="nombre" value="">
+		  <br>
+		  Descripción: <br>
+		  <input type="text" name="descripcion" value="">
+		  <br><br>
+		  <input type="submit" value="Guardar">
+	</form> 
 </body>
 </html>
