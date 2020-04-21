@@ -5,20 +5,25 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.vaescode.empleos.model.Vacante;
+import com.vaescode.empleos.service.IVacanteService;
 
 
 
 @Controller
 public class HomeController {
 	
+	@Autowired
+	private IVacanteService serviceVacante;
+	
 	@GetMapping("/tabla")
 	public String mostrarTabla(Model model) {
-		List<Vacante> lista = getVacantes();
+		List<Vacante> lista = serviceVacante.buscarTodas();
 		model.addAttribute("vacantes", lista);
 		return "tabla";
 	}
@@ -63,70 +68,4 @@ public class HomeController {
 		return "home";
 	}
 	
-	
-	/**
-	 * Método que regresa una lista de objetos de tipo vacante 
-	 *
-	 */
-	private List<Vacante> getVacantes(){
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
-		List<Vacante> lista = new LinkedList<Vacante>();
-		
-		try {
-			//Vacante uno
-			Vacante vacante1 = new Vacante();
-			vacante1.setId(1);
-			vacante1.setNombre("Ingeniero civil");
-			vacante1.setDescripcion("Solicitamos ing. civil para diseñar puente peatonal");
-			vacante1.setFecha(sdf.parse("09-04-2020"));
-			vacante1.setSalario(8500.00);
-			vacante1.setDestacado(1);
-			vacante1.setImagen("empresa1.png");
-			
-			//Vacante dos
-			Vacante vacante2 = new Vacante();
-			vacante2.setId(2);
-			vacante2.setNombre("Contador publico");
-			vacante2.setDescripcion("Empresa importante solicita contador con 5 años de experiencia");
-			vacante2.setFecha(sdf.parse("12-04-2020"));
-			vacante2.setSalario(8500.00);
-			vacante2.setDestacado(0);
-			vacante2.setImagen("empresa2.png");
-			
-			//Vacante tres
-			Vacante vacante3 = new Vacante();
-			vacante3.setId(3);
-			vacante3.setNombre("Ingeniero electronico");
-			vacante3.setDescripcion("Empresa internacional solicita ingeniero mecanico para mantenimiento de la instalación electrica");
-			vacante3.setFecha(sdf.parse("11-04-2020"));
-			vacante3.setSalario(10500.00);
-			vacante3.setDestacado(0);
-		
-			
-			//Vacante cuatro
-			Vacante vacante4 = new Vacante();
-			vacante4.setId(4);
-			vacante4.setNombre("Ingeniero en sistemas");
-			vacante4.setDescripcion("Solicitamos ing. en sistemas para desarrollo de app a la medida");
-			vacante4.setFecha(sdf.parse("09-04-2020"));
-			vacante4.setSalario(5500.00);
-			vacante4.setDestacado(1);
-			vacante4.setImagen("empresa3.png");
-			
-			/**
-			 * Agregamos los 4 objetos de tipo Vacante a la lista
-			 * */
-			lista.add(vacante1);
-			lista.add(vacante2);
-			lista.add(vacante3);
-			lista.add(vacante4);
-			
-		}catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-		
-		return lista;
-	}
-	
-
 }

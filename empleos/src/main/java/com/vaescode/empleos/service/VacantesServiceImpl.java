@@ -3,8 +3,11 @@ package com.vaescode.empleos.service;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
 import com.vaescode.empleos.model.Vacante;
 
+@Service
 public class VacantesServiceImpl implements IVacanteService{
 	
 	/*Se inicializa la lista como atributo de la clase para poder usarla
@@ -23,7 +26,7 @@ public class VacantesServiceImpl implements IVacanteService{
 			vacante1.setNombre("Ingeniero civil");
 			vacante1.setDescripcion("Solicitamos ing. civil para diseñar puente peatonal");
 			vacante1.setFecha(sdf.parse("09-04-2020"));
-			vacante1.setSalario(8500.00);
+			vacante1.setSalario(8000.00);
 			vacante1.setDestacado(1);
 			vacante1.setImagen("empresa1.png");
 			
@@ -53,7 +56,7 @@ public class VacantesServiceImpl implements IVacanteService{
 			vacante4.setNombre("Ingeniero en sistemas");
 			vacante4.setDescripcion("Solicitamos ing. en sistemas para desarrollo de app a la medida");
 			vacante4.setFecha(sdf.parse("09-04-2020"));
-			vacante4.setSalario(5500.00);
+			vacante4.setSalario(25500.00);
 			vacante4.setDestacado(1);
 			vacante4.setImagen("empresa3.png");
 			
