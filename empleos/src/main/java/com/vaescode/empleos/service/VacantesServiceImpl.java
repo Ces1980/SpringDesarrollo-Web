@@ -28,7 +28,7 @@ public class VacantesServiceImpl implements IVacanteService{
 			vacante1.setFecha(sdf.parse("09-04-2020"));
 			vacante1.setSalario(8000.00);
 			vacante1.setDestacado(1);
-			vacante1.setImagen("empresa1.png");
+			vacante1.setImagen("logo3.png");
 			
 			//Vacante dos
 			Vacante vacante2 = new Vacante();
