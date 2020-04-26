@@ -24,7 +24,7 @@ public class HomeController {
 	@GetMapping("/tabla")
 	public String mostrarTabla(Model model) {
 		List<Vacante> lista = serviceVacante.buscarTodas();
-		model.addAttribute("vacantes", lista);
+	model.addAttribute("vacantes", lista);	
 		return "tabla";
 	}
 	

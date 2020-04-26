@@ -12,6 +12,7 @@ import com.vaescode.empleos.model.Vacante;
 import com.vaescode.empleos.service.IVacanteService;
 
 import java.util.Date;
+import java.util.List;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,19 @@ public class VacantesController {
 	
 	@Autowired
 	private IVacanteService serviceVacante;
+	
+	@GetMapping("/index")
+	public String mostrarIndex(Model model) {
+		
+		//Todo 1. Obtener todas las vacantes (recuperarlas con la clase servicio)
+		List<Vacante> lista = serviceVacante.buscarTodas();
+		//Agregar el modelo al listado de vacantes
+		model.addAttribute("vacantes", lista);	
+		//Renderizar las vacantes en la vista (integrar el archivo template-empleos/listVacantes.html)
+		
+		//Agregar al menu una opción llamada Vacantes configurando la URL vacantes/index 
+		return "vacantes/listVacantes";
+	}
 	
 	@GetMapping("/create")
 	public String crear() {
