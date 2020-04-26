@@ -89,6 +89,12 @@ public class VacantesServiceImpl implements IVacanteService{
 		return null;
 	}
 
+	@Override
+	public void guardar(Vacante vacante) {
+		/*Objeto que es enviado por el controlador a través de la clase de servicio*/
+		lista.add(vacante);
+	}
+
 	
 
 }
