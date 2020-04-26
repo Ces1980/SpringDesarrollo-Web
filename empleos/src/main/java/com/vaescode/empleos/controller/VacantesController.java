@@ -19,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 
 @Controller
 @RequestMapping("/vacantes")
@@ -45,11 +47,20 @@ public class VacantesController {
 		return "vacantes/formVacante";
 	}
 	
-
+/*Para revisar posibles errores después del Data Binding(enlace de datos) debemos 
+ * agregar un parametro de tipo BindingResult INMEDIATAMENTE después del parametro que se pasa del tipo Modelo
+ * */
 	@PostMapping("/save")
-	public String guardar ( Vacante vacante) {
+	public String guardar (Vacante vacante, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			for (ObjectError error: result.getAllErrors()) {
+				System.out.println("Ocurrio un error: " + error.getDefaultMessage());
+			}
+			return "vacantes/formVacante";
+		}
 		serviceVacante.guardar(vacante);
-		System.out.println("Vacante: " + vacante);
+		System.out.println("Vacante" + vacante);
 		
 		return "vacantes/listVacantes";
 	}
