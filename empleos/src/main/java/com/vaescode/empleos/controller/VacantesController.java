@@ -42,8 +42,9 @@ public class VacantesController {
 		return "vacantes/listVacantes";
 	}
 	
+	/*Se pasa por paramerro un objeto vacante llamado vacante para por usar el objeto en la vista html*/
 	@GetMapping("/create")
-	public String crear() {
+	public String crear(Vacante vacante) {
 		return "vacantes/formVacante";
 	}
 	
