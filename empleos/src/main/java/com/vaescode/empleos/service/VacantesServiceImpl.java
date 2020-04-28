@@ -27,6 +27,7 @@ public class VacantesServiceImpl implements IVacanteService{
 			vacante1.setDescripcion("Solicitamos ing. civil para diseñar puente peatonal");
 			vacante1.setFecha(sdf.parse("09-04-2020"));
 			vacante1.setSalario(8000.00);
+			vacante1.setEstatus("Aprobada");
 			vacante1.setDestacado(1);
 			vacante1.setImagen("logo3.png");
 			

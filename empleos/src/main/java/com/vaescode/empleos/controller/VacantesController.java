@@ -62,8 +62,11 @@ public class VacantesController {
 		}
 		serviceVacante.guardar(vacante);
 		System.out.println("Vacante" + vacante);
-		
-		return "vacantes/listVacantes";
+		/*Un redirect (abreviatura de redirección) es un reenvío automático
+		 *el lado del servidor o del cliente de una URL a otra. 
+		 *Las redirecciones se utilizan para diversos fines, como la reubicación 
+		 *de un sitio web en un nuevo dominio o el mantenimiento de un servidor.*/
+		return "redirect:/vacantes/index";
 	}
 	/**
 	@PostMapping("/save")
