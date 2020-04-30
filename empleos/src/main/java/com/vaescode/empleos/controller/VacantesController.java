@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.vaescode.empleos.model.Vacante;
 import com.vaescode.empleos.service.IVacanteService;
@@ -52,7 +53,7 @@ public class VacantesController {
  * agregar un parametro de tipo BindingResult INMEDIATAMENTE después del parametro que se pasa del tipo Modelo
  * */
 	@PostMapping("/save")
-	public String guardar (Vacante vacante, BindingResult result) {
+	public String guardar (Vacante vacante, BindingResult result, RedirectAttributes atributes) {
 		
 		if(result.hasErrors()) {
 			for (ObjectError error: result.getAllErrors()) {
@@ -61,6 +62,7 @@ public class VacantesController {
 			return "vacantes/formVacante";
 		}
 		serviceVacante.guardar(vacante);
+		atributes.addFlashAttribute("msg", "Registro guardado");
 		System.out.println("Vacante" + vacante);
 		/*Un redirect (abreviatura de redirección) es un reenvío automático
 		 *el lado del servidor o del cliente de una URL a otra. 
